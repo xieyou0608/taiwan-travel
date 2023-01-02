@@ -1,13 +1,21 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import { Flex, Heading, Button, useColorModeValue } from "@chakra-ui/react";
+import Link from "next/link";
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">About</Link>
-    </p>
-  </Layout>
-)
+const IndexPage = () => {
+  const formBackground = useColorModeValue("gray.100", "gray.700");
 
-export default IndexPage
+  return (
+    <Flex height="100vh" alignItems="center" justifyContent="center">
+      <Flex direction="column" background={formBackground} p={12} rounded={6}>
+        <Heading mb={6}>Welcome!</Heading>
+        <Button mb={6} colorScheme="teal" as={Link} href="/news">
+          News
+        </Button>
+        <Button mb={6} colorScheme="teal" as={Link} href="/travel">
+          Travel
+        </Button>
+      </Flex>
+    </Flex>
+  );
+};
+export default IndexPage;
